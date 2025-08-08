@@ -28,6 +28,9 @@ jobs:
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
+    - name: Remove CNAME file to ensure default GitHub Pages URL
+      run: rm -f ./dist/CNAME
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       if: github.ref == 'refs/heads/main'
